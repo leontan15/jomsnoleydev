@@ -5,3 +5,22 @@
             int num3 = (InputNum / 100) % 10;
             int num2 = (InputNum / 1000) % 10;
             int num1 = (InputNum / 10000) % 10;
+
+//Prac to show numbers with spaces between
+//Decalre varibles
+            int InputNum;
+            //int number2;
+
+            //prompt user and read first 
+            Console.Write("Please input 5 digit number: ");
+            InputNum = Convert.ToInt32(Console.ReadLine());
+
+           
+            // Operations to separate digits
+            int num5 = InputNum % 10;
+            int num4 = (InputNum / 10) % 10;
+            int num3 = (InputNum / 100) % 10;
+            int num2 = (InputNum / 1000) % 10;
+            int num1 = (InputNum / 10000) % 10;
+            //Display number
+            Console.WriteLine(num1+" "+num2+" "+num3+" "+num4+" "+num5);
