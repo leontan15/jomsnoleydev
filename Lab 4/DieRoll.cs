@@ -37,7 +37,7 @@ namespace DieRoll
             var outputSix = new int[7];
 
             // Add the arrays together
-            for(int numInc = 1; numInc <= 6; numInc++)
+            for (int numInc = 1; numInc <= 6; numInc++)
             {
                 outputOne[numInc] = dieRollOne[1] + dieRollTwo[numInc];
                 outputTwo[numInc] = dieRollOne[2] + dieRollTwo[numInc];
