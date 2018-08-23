@@ -20,20 +20,12 @@ namespace DieRoll
             // Roll die 36,000 times 
             for (int roll = 1; roll <= 36000; ++roll)
             {
-                // Adding a random number to die roll one
-                dieRollOne[1] = rnd.Next(1, 7);
-                dieRollOne[2] = rnd.Next(1, 7);
-                dieRollOne[3] = rnd.Next(1, 7);
-                dieRollOne[4] = rnd.Next(1, 7);
-                dieRollOne[5] = rnd.Next(1, 7);
-                dieRollOne[6] = rnd.Next(1, 7);
-                // Adding a random number to die roll two
-                dieRollTwo[1] = rnd.Next(1, 7);
-                dieRollTwo[2] = rnd.Next(1, 7);
-                dieRollTwo[3] = rnd.Next(1, 7);
-                dieRollTwo[4] = rnd.Next(1, 7);
-                dieRollTwo[5] = rnd.Next(1, 7);
-                dieRollTwo[6] = rnd.Next(1, 7);
+                // Get a random value for the 6 items in the array
+                for (int numInc = 1; numInc <= 6; numInc++)
+                {
+                    dieRollOne[numInc] = rnd.Next(1, 7);
+                    dieRollTwo[numInc] = rnd.Next(1, 7);
+                }
             }
 
             // Declaration of new arrays
@@ -45,52 +37,21 @@ namespace DieRoll
             var outputSix = new int[7];
 
             // Add the arrays together
-            outputOne[1] = dieRollOne[1] + dieRollTwo[1];
-            outputOne[2] = dieRollOne[1] + dieRollTwo[2];
-            outputOne[3] = dieRollOne[1] + dieRollTwo[3];
-            outputOne[4] = dieRollOne[1] + dieRollTwo[4];
-            outputOne[5] = dieRollOne[1] + dieRollTwo[5];
-            outputOne[6] = dieRollOne[1] + dieRollTwo[6];
+            for(int numInc = 1; numInc <= 6; numInc++)
+            {
+                outputOne[numInc] = dieRollOne[1] + dieRollTwo[numInc];
+                outputTwo[numInc] = dieRollOne[2] + dieRollTwo[numInc];
+                outputThree[numInc] = dieRollOne[3] + dieRollTwo[numInc];
+                outputFour[numInc] = dieRollOne[4] + dieRollTwo[numInc];
+                outputFive[numInc] = dieRollOne[5] + dieRollTwo[numInc];
+                outputSix[numInc] = dieRollOne[6] + dieRollTwo[numInc];
+            }
 
-            outputTwo[1] = dieRollOne[2] + dieRollTwo[1];
-            outputTwo[2] = dieRollOne[2] + dieRollTwo[2];
-            outputTwo[3] = dieRollOne[2] + dieRollTwo[3];
-            outputTwo[4] = dieRollOne[2] + dieRollTwo[4];
-            outputTwo[5] = dieRollOne[2] + dieRollTwo[5];
-            outputTwo[6] = dieRollOne[2] + dieRollTwo[6];
+            /* Outputting to the matrix */
 
-            outputThree[1] = dieRollOne[3] + dieRollTwo[1];
-            outputThree[2] = dieRollOne[3] + dieRollTwo[2];
-            outputThree[3] = dieRollOne[3] + dieRollTwo[3];
-            outputThree[4] = dieRollOne[3] + dieRollTwo[4];
-            outputThree[5] = dieRollOne[3] + dieRollTwo[5];
-            outputThree[6] = dieRollOne[3] + dieRollTwo[6];
-
-            outputFour[1] = dieRollOne[4] + dieRollTwo[1];
-            outputFour[2] = dieRollOne[4] + dieRollTwo[2];
-            outputFour[3] = dieRollOne[4] + dieRollTwo[3];
-            outputFour[4] = dieRollOne[4] + dieRollTwo[4];
-            outputFour[5] = dieRollOne[4] + dieRollTwo[5];
-            outputFour[6] = dieRollOne[4] + dieRollTwo[6];
-
-            outputFive[1] = dieRollOne[5] + dieRollTwo[1];
-            outputFive[2] = dieRollOne[5] + dieRollTwo[2];
-            outputFive[3] = dieRollOne[5] + dieRollTwo[3];
-            outputFive[4] = dieRollOne[5] + dieRollTwo[4];
-            outputFive[5] = dieRollOne[5] + dieRollTwo[5];
-            outputFive[6] = dieRollOne[5] + dieRollTwo[6];
-
-            outputSix[1] = dieRollOne[6] + dieRollTwo[1];
-            outputSix[2] = dieRollOne[6] + dieRollTwo[2];
-            outputSix[3] = dieRollOne[6] + dieRollTwo[3];
-            outputSix[4] = dieRollOne[6] + dieRollTwo[4];
-            outputSix[5] = dieRollOne[6] + dieRollTwo[5];
-            outputSix[6] = dieRollOne[6] + dieRollTwo[6];
-
-            // Numbers above 
+            // Numbers at the top 
             Console.WriteLine("  1 2 3 4 5 6");
 
-            // Output to the matrix
             Console.Write("1 ");
 
             for (var face = 1; face < outputOne.Length; ++face)
