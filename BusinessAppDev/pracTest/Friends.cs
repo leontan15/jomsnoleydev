@@ -46,7 +46,7 @@ namespace labTestAppPrac
             set
             {
                 //&& value <= 31
-                if (value > 1 || value < 31 ) // determine whether quantity is positive
+                if (value >= 1 && value <= 31 ) // determine whether quantity is positive
                 {
                     dayValue = value; // valid quantity assigned
                 }
@@ -64,7 +64,7 @@ namespace labTestAppPrac
             }
             set
             {
-                if (value > 1 ) // determine whether quantity is positive
+                if (value >= 1 && value <= 12) // determine whether quantity is positive
                 {
                     monthValue = value; // valid quantity assigned
                 }
@@ -80,7 +80,7 @@ namespace labTestAppPrac
         // left justify each field, and give large enough spaces so
         // all the columns line up
         public override string ToString() =>
-           $"{LastNameText,-20} {FirstNameText,-20} {mobileNumber,-9} ";
+           $"{LastNameText,-20} {FirstNameText,-20} {mobileNumber,-9} {dayValue,-4} ";
     }
 
 }
