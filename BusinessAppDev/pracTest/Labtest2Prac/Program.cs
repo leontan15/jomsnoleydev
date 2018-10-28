@@ -14,7 +14,10 @@ namespace labTest22018
             //"CashPurchase"Writing Contents to file / default location
 
             char delim = ',';
-            double saleTotal;
+            double saleTotal = 0;
+            double saleRead = 0;
+            //double discountRate = 0;
+
             //Set file name
             string Filename = "CashPurchases.txt";
             // Create new object using template
@@ -28,9 +31,9 @@ namespace labTest22018
 
             while(pur.SupplierCode != "END")
             {
-                Console.WriteLine("Enter Supplier Code: ");
-                pur.SupplierCode = Console.ReadLine();
-                Console.WriteLine("Enter Item Code; ");
+                //Console.WriteLine("Enter Supplier Code: ");
+                //pur.SupplierCode = Console.ReadLine();
+                Console.WriteLine("Enter Item Code: ");
                 pur.ItemCode = Console.ReadLine();
 
                 //read double
@@ -40,7 +43,7 @@ namespace labTest22018
                     pur.CostPerUnit = Convert.ToDouble(Console.ReadLine());
                     Console.WriteLine("Enter Quantity: ");
                     pur.Quantity = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("Enter Cash Discount");
+                    Console.WriteLine("Enter Cash Discount: ");
                     pur.Discount = Convert.ToDouble(Console.ReadLine());
                 }
                 catch
@@ -49,10 +52,13 @@ namespace labTest22018
                     Console.ReadLine();
                     Environment.Exit(0);
                 }
+                //Calculate Discount
+                // discountRate = pur.Discount * 100;
+                //Calculate Cost
                 saleTotal = pur.calculateCost();
                 //write to file
                 writer.WriteLine(pur.SupplierCode + delim + pur.ItemCode + delim + pur.CostPerUnit + delim + pur.Quantity + delim + pur.Discount + delim + saleTotal);
-                Console.WriteLine("Enter Supplier Code or END to quit: ");
+                Console.WriteLine("Enter Another Supplier Code or END to quit: ");
                 pur.SupplierCode = Console.ReadLine();
             }
             writer.Close();
@@ -66,7 +72,7 @@ namespace labTest22018
             string input = "";
             string[] fields;
 
-            Console.WriteLine("\n{0,-30}{1,-20}{2,20}{3,30}{4,40}\n", "Supplier Code", "Item Code", "Item Cost Per Unit", "Item Quanitiy", "Sale total $");
+            //Console.WriteLine("\n{0,-30}{1,-25}{2,-20}{3,5:}{4,10}{5,15}\n", "Supplier Code", "Item Code", "Item Cost Per Unit", "Item Quanitiy", "Discount" , "Sale total $");
 
             while (input !=null)
             {
@@ -79,8 +85,15 @@ namespace labTest22018
                     pur.CostPerUnit = Convert.ToDouble(fields[2]);
                     pur.Quantity = Convert.ToDouble(fields[3]);
                     pur.Discount = Convert.ToDouble(fields[4]);
-                    saleTotal = Convert.ToDouble(fields[5]);
-                    Console.WriteLine(pur);
+                    saleRead = Convert.ToDouble(fields[5]);
+                    //write objects to console
+                    Console.WriteLine("Supplier Code: " + pur.SupplierCode);
+                    Console.WriteLine("Item Code: $" + pur.ItemCode);
+                    Console.WriteLine("Cost per Unit: $" + pur.CostPerUnit);
+                    Console.WriteLine("Quantity: $" + pur.Quantity);
+                    Console.WriteLine("Cash Sale Discount: $" + pur.Discount);
+                    //write total sales
+                    Console.WriteLine("Sales Total: $"+ saleRead);
                     input = reader.ReadLine();
                 }
             }
